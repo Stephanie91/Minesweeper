@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Minesweeper
+namespace Minesweeper.FieldMatrix
 {
     class Minesweeper
     {
-        public bool IsMine { get; private set; }
-        public int CountedMines { get; private set; }
+        public bool IsMine { get; set; }
+        public int CountedMines { get; set; }
     }
 }
