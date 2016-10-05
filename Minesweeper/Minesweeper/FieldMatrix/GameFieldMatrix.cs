@@ -44,6 +44,11 @@ namespace Minesweeper.FieldMatrix
         #endregion
 
         #region Methodes
+        /// <summary>
+        /// Init die FieldMatrix
+        /// </summary>
+        /// <param name="nWidth"></param>
+        /// <param name="nHeight"></param>
         private void InitGameFieldMatrix(int nWidth, int nHeight)
         {
             m_Matrix = new Minesweeper[nWidth, nHeight];
@@ -56,13 +61,25 @@ namespace Minesweeper.FieldMatrix
             }
         }
 
+        /// <summary>
+        /// registriert das Clicken auf dem Spielfeld
+        /// </summary>
+        /// <param name="nXCoordinate"></param>
+        /// <param name="nYCoordinate"></param>
         public void NoteFieldClick(int nXCoordinate, int nYCoordinate)
         {
             if (m_nOpenFieldsCount == 0)
+            {
                 SetMines(nXCoordinate, nYCoordinate);
+            }
 
         }
 
+        /// <summary>
+        /// Setzt die Mienen auf dem Spielfeld
+        /// </summary>
+        /// <param name="nXCoordinate">X Koordinate des Felds, wo keine Miene sein darf</param>
+        /// <param name="nYCoordinate">Y Koordinate des Felds, wo keine Miene sein darf</param>
         private void SetMines(int nXCoordinate, int nYCoordinate)
         {
             Random rnd = new Random();
@@ -73,6 +90,7 @@ namespace Minesweeper.FieldMatrix
                 int nX = rnd.Next(nWidth);
                 int nY = rnd.Next(nHeight);
 
+                //solange suchen, bis ein freies feld gefunden wurde
                 while (m_Matrix[nX,nY].IsMine || (nX == nXCoordinate && nY == nYCoordinate) )
                 {
                     nX++;
@@ -85,7 +103,7 @@ namespace Minesweeper.FieldMatrix
                     }
                     else
                     {
-
+                        //kein überlauf
                     }
                 }
 
