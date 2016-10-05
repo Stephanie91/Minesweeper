@@ -15,8 +15,6 @@ namespace Minesweeper
         [STAThread]
         static void Main()
         {
-            GameFieldMatrix m = new GameFieldMatrix(10, 15, 10);
-            m.NoteFieldClick(5, 5);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
